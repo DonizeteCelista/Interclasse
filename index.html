@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Jogos Interclasse
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+
+<!-- =================================================
+SEÇÃO 1 - TELA INICIAL
+================================================= -->
+
+
+<section id="inicio" class="tela ativa">
+
+
+<div class="logo">
+
+🏆
+
+</div>
+
+
+<h1>
+JOGOS INTERCLASSE
+</h1>
+
+
+<h2>
+E.E.B. Profª Daniela Pereira
+</h2>
+
+
+<p>
+Escolha o turno
+</p>
+
+
+
+<button onclick="escolherTurno('Matutino')">
+🌅 Matutino
+</button>
+
+
+<button onclick="escolherTurno('Vespertino')">
+☀️ Vespertino
+</button>
+
+
+<button onclick="escolherTurno('Noturno')">
+🌙 Noturno
+</button>
+
+
+
+
+<button class="admin" onclick="abrirLogin()">
+
+🔐 ADMINISTRADOR
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 2 - MODALIDADES
+================================================= -->
+
+
+<section id="modalidades" class="tela">
+
+
+<h1 id="tituloTurno">
+
+Turno
+
+</h1>
+
+
+
+<h2>
+Modalidades
+</h2>
+
+
+<div id="listaModalidadesAluno">
+
+
+</div>
+
+
+
+<button onclick="voltarTela('inicio')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 3 - CATEGORIA
+================================================= -->
+
+
+<section id="categorias" class="tela">
+
+
+<h1 id="tituloEsporte">
+
+Modalidade
+
+</h1>
+
+
+
+<button onclick="escolherCategoria('Masculino')">
+
+👨 Masculino
+
+</button>
+
+
+
+<button onclick="escolherCategoria('Feminino')">
+
+👩 Feminino
+
+</button>
+
+
+
+<button onclick="voltarTela('modalidades')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 4 - MENU DA COMPETIÇÃO
+================================================= -->
+
+
+<section id="competicao" class="tela">
+
+
+<h1 id="tituloCompeticao">
+
+Competição
+
+</h1>
+
+
+
+<button onclick="abrirJogos()">
+
+📅 Próximos Jogos
+
+</button>
+
+
+
+<button onclick="abrirResultados()">
+
+🏆 Resultados
+
+</button>
+
+
+
+<button onclick="abrirClassificacao()">
+
+📊 Classificação
+
+</button>
+
+
+
+<button onclick="abrirChaveamento()">
+
+🌳 Chaveamento
+
+</button>
+
+
+
+<button onclick="voltarTela('categorias')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 5 - LOGIN ADMIN
+================================================= -->
+
+
+<section id="login" class="tela">
+
+
+<h1>
+
+Administrador
+
+</h1>
+
+
+<input id="senhaAdmin"
+
+type="password"
+
+placeholder="Digite a senha">
+
+
+<button onclick="entrarAdministrador()">
+
+Entrar
+
+</button>
+
+
+
+<button onclick="voltarTela('inicio')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 6 - PAINEL PROFESSOR
+================================================= -->
+
+
+<section id="painelAdmin" class="tela">
+
+
+<h1>
+
+Painel Professor
+
+</h1>
+
+
+
+<button onclick="abrirEquipes()">
+
+👥 Equipes
+
+</button>
+
+
+
+<button onclick="abrirFormatos()">
+
+🏆 Campeonato
+
+</button>
+
+
+
+<button onclick="abrirNovaModalidade()">
+
+➕
+
+Adicionar Modalidade
+
+</button>
+
+
+
+<button onclick="sairAdministrador()" class="voltar">
+
+🚪 Sair
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 7 - EQUIPES
+================================================= -->
+
+
+<section id="equipes" class="tela">
+
+
+<h1>
+
+Equipes
+
+</h1>
+
+
+
+<input id="nomeEquipe"
+
+placeholder="Nome da equipe">
+
+
+
+<button onclick="adicionarEquipe()">
+
+Adicionar Equipe
+
+</button>
+
+
+
+<div id="listaEquipes">
+
+</div>
+
+
+
+<button onclick="voltarTela('painelAdmin')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 8 - FORMATO CAMPEONATO
+================================================= -->
+
+
+<section id="formatos" class="tela">
+
+
+<h1>
+
+Formato
+
+</h1>
+
+
+
+<button onclick="criarPontosCorridos()">
+
+⚽ Pontos Corridos
+
+</button>
+
+
+
+<button onclick="criarGrupos()">
+
+🏆 Grupos + Eliminatórias
+
+</button>
+
+
+
+<button onclick="criarEliminatoria()">
+
+🔥 Eliminatórias
+
+</button>
+
+
+
+<button onclick="voltarTela('painelAdmin')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 9 - NOVA MODALIDADE
+================================================= -->
+
+
+<section id="novaModalidade" class="tela">
+
+
+<h1>
+
+Adicionar Modalidade
+
+</h1>
+
+
+
+<input id="nomeModalidade"
+
+placeholder="Nome">
+
+
+
+<button onclick="salvarModalidade()">
+
+Salvar
+
+</button>
+
+
+
+<div id="listaModalidadesAdmin">
+
+</div>
+
+
+
+<button onclick="voltarTela('painelAdmin')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 10 - JOGOS
+================================================= -->
+
+
+<section id="jogos" class="tela">
+
+
+<h1>
+
+Jogos
+
+</h1>
+
+
+<div id="listaJogos">
+
+</div>
+
+
+
+<button onclick="voltarTela('competicao')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 11 - RESULTADOS
+================================================= -->
+
+
+<section id="resultados" class="tela">
+
+
+<h1>
+
+Resultados
+
+</h1>
+
+
+
+<div id="listaResultados">
+
+</div>
+
+
+
+<button onclick="voltarTela('competicao')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 12 - CLASSIFICAÇÃO
+================================================= -->
+
+
+<section id="classificacao" class="tela">
+
+
+<h1>
+
+Classificação
+
+</h1>
+
+
+
+<div id="tabelaClassificacao">
+
+</div>
+
+
+
+<button onclick="voltarTela('competicao')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =================================================
+SEÇÃO 13 - CHAVEAMENTO
+================================================= -->
+
+
+<section id="chaveamento" class="tela">
+
+
+<h1>
+
+Chaveamento
+
+</h1>
+
+
+
+<div id="tabelaChaveamento">
+
+</div>
+
+
+
+<button onclick="voltarTela('competicao')" class="voltar">
+
+⬅ Voltar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="dados.js"></script>
+
+<script src="app.js"></script>
+
+
+
+</body>
+
+
+</html>
